@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "kkllai",
     "public": "public",
     "ignore": [
       "firebase.json",
@@ -7,6 +8,27 @@
       "**/node_modules/**"
     ],
     "rewrites": [
+      {
+        "source": "/api/nvidia/**",
+        "run": {
+          "serviceId": "nvidiaproxy",
+          "region": "us-central1"
+        }
+      },
+      {
+        "source": "/api/push/complete-todo",
+        "run": {
+          "serviceId": "completetodo",
+          "region": "us-central1"
+        }
+      },
+      {
+        "source": "/api/push/**",
+        "run": {
+          "serviceId": "pushcheck",
+          "region": "us-central1"
+        }
+      },
       {
         "source": "**",
         "destination": "/index.html"
